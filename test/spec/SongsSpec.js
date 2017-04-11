@@ -1,5 +1,5 @@
 describe('Songs', function() {
-  xdescribe('when fetching song data from Parse', function() {
+  describe('when fetching song data from Parse', function() {
     var songs, fakeSongData, fakeResponse, xhr, requests;
 
     beforeEach(function() {
@@ -31,8 +31,9 @@ describe('Songs', function() {
 
     it('should GET song data from Parse when initialized', function() {
       songs = new Songs();
+      // console.log(requests[0])
       expect(requests[0].method).to.equal('GET');
-      expect(requests[0].url).to.include('http://parse.CAMPUS.hackreactor.com/mytunes/classes/songs');
+      expect(requests[0].url).to.include('http://parse.sfm8.hackreactor.com/mytunes/classes/songs');
     });
 
     it('should populate itself with the data returned from the Parse server', function() {

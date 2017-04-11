@@ -5,16 +5,23 @@ var LibraryView = Backbone.View.extend({
 
   initialize: function() {
     // this.render();
-    // this.collection.on('change', this.render);
-    this.on('change', this.render())
+    //this.collection.on('change', this.render);
+    // this.on('change', this.render())
+    this.on('request', this.render())
+    // console.log(this.collection)
+    // this.listenTo(this.collection, "request", this.render);
+
+
+    this.collection.bind('add', this.render, this)
+    // this.listenTo(this.collection, 'sync', this.render);
 
   },
 
   event:{
-    reset: function() {
-      console.log(true);
-      this.model.render();
-    }
+    // change: function() {
+    //   console.log(true);
+    //   // this.render();
+    // }
   },
 
   render: function() {
