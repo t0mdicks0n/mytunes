@@ -4,16 +4,19 @@ var LibraryView = Backbone.View.extend({
   tagName: 'table',
 
   initialize: function() {
-    // this.render();
+    this.render();
     //this.collection.on('change', this.render);
     // this.on('change', this.render())
-    this.on('request', this.render())
+    // this.on('request', this.render())
     // console.log(this.collection)
     // this.listenTo(this.collection, "request", this.render);
+    this.collection.on('sync', function() {
+      this.render();
+    }, this);
 
 
-    this.collection.bind('add', this.render, this)
-    // this.listenTo(this.collection, 'sync', this.render);
+    // this.collection.bind('add', this.render, this)
+    // this.listenTo(this.collection, 'update', this.render);
 
   },
 
