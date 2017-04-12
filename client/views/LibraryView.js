@@ -10,7 +10,7 @@ var LibraryView = Backbone.View.extend({
     // this.on('request', this.render())
     // console.log(this.collection)
     // this.listenTo(this.collection, "request", this.render);
-    this.collection.on('sync', function() {
+    this.collection.on('TOM', function() {
       this.render();
     }, this);
 

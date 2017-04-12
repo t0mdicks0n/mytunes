@@ -3,36 +3,34 @@ var Songs = Backbone.Collection.extend({
 
   model: SongModel,
 
-  server: 'http://parse.sfm8.hackreactor.com/mytunes/classes/songs',
+  url: 'http://parse.sfm8.hackreactor.com/mytunes/classes/songs',
 
   //temp: this,
 
   initialize: function(temp){
 		$.ajax({
 			context: this,
-			url: this.server,
+			url: this.url,
 			type: 'GET',
 			data: {},
 			contentType: 'application/json',
 			success: function (data) {
 				this.add(data.results)
+				this.trigger('TOM')
 			},
 			error: function (data) {
-
 			}
 		});
+  },
 
-		this.on
+  
+  parse: function(response) {
+    return response.results;
   },
 
   ended: function(){
-  	this.model.trigger('ended')
+  	this.model.ended;
   },
 
-  fetch: {
-  	success: function(){
-  		console.log(true)
-  	}
-  }
 
 });
